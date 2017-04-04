@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d("LifeCycle", "OnRemove");
+        Log.d("LifeCycle", "OnResume");
     }
 
     @Override
