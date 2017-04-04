@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,26 +12,39 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    int counter = 0;
+    private static final String CLICK_COUNTER = "static final click counterValue key";
     TextView counterView;
+    int counterValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            counterValue = savedInstanceState.getInt(CLICK_COUNTER);
+        }
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         counterView = (TextView) findViewById(R.id.counterTextView);
+        counterView.setText(counterValue + "");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                counter++;
-                counterView.setText(counter + "");
+                counterValue++;
+                counterView.setText(counterValue + "");
             }
         });
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putInt(CLICK_COUNTER, counterValue);
+        super.onSaveInstanceState(outState);
     }
 
     @Override
