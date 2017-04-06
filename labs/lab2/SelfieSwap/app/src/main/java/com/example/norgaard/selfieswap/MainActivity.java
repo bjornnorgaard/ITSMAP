@@ -12,6 +12,7 @@ import java.io.Console;
 public class MainActivity extends AppCompatActivity {
 
     private static final String SWAPPED_KEY = "asifdhsiudfkisduhfkiu";
+    String debugTag = "Swap";
     boolean isSwapped;
 
     @Override
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState != null) {
             isSwapped = savedInstanceState.getBoolean(SWAPPED_KEY);
-            Log.d("Lifecycle", "onCreate(): isSwapped is : " + isSwapped);
+            Log.d(debugTag, "onCreate(): isSwapped is : " + isSwapped);
         }
 
         setContentView(R.layout.activity_main);
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             isSwapped = true;
         }
-        Log.d("Button Click", "User clicked swap button, " + isSwapped);
+        Log.d(debugTag, "User clicked swap button, " + isSwapped);
     }
 
     @Override
