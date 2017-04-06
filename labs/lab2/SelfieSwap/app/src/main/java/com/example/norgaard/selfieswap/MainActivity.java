@@ -1,11 +1,14 @@
 package com.example.norgaard.selfieswap;
 
+import android.graphics.drawable.Drawable;
 import android.os.PersistableBundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import java.io.Console;
 
@@ -14,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String SWAPPED_KEY = "asifdhsiudfkisduhfkiu";
     String debugTag = "Swap";
     boolean isSwapped;
+    ImageView bar;
+    ImageView foo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
             isSwapped = savedInstanceState.getBoolean(SWAPPED_KEY);
             Log.d(debugTag, "onCreate(): isSwapped is : " + isSwapped);
         }
+
+        foo = (ImageView) findViewById(R.id.foo);
+        bar = (ImageView) findViewById(R.id.bar);
 
         setContentView(R.layout.activity_main);
 
@@ -38,9 +46,14 @@ public class MainActivity extends AppCompatActivity {
     public void onClickSwapButton() {
         if (isSwapped == true) {
             isSwapped = false;
-        } else {
+        }
+        else {
             isSwapped = true;
         }
+
+        foo.setImageResource(R.drawable.bar);
+        bar.setImageResource(R.drawable.foo);
+
         Log.d(debugTag, "User clicked swap button, " + isSwapped);
     }
 
