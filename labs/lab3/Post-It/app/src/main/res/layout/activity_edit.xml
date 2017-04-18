@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
-        android:id="@+id/btnDoneEditing"
+        android:id="@+id/btnOk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="0dp"

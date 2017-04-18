@@ -25,7 +25,7 @@ public class EditActivity extends AppCompatActivity {
             editText.setText(s);
         }
 
-        Button button = (Button) findViewById(R.id.btnDoneEditing);
+        Button button = (Button) findViewById(R.id.btnOk);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
