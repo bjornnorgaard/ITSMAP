@@ -29,8 +29,18 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="0dp"
         android:layout_marginTop="8dp"
-        android:text="Button"
+        android:text="Ok"
         app:layout_constraintRight_toRightOf="@+id/edtInputField"
+        app:layout_constraintTop_toBottomOf="@+id/edtInputField"/>
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="8dp"
+        android:text="Cancel"
+        app:layout_constraintLeft_toLeftOf="@+id/edtInputField"
         app:layout_constraintTop_toBottomOf="@+id/edtInputField"/>
 
 </android.support.constraint.ConstraintLayout>
