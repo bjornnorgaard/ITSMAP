@@ -14,11 +14,11 @@
         android:layout_marginRight="0dp"
         android:layout_marginTop="32dp"
         android:text="Edit"
-        app:layout_constraintRight_toRightOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView"/>
+        app:layout_constraintRight_toRightOf="@+id/txwForString"
+        app:layout_constraintTop_toBottomOf="@+id/txwForString"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txwForString"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
