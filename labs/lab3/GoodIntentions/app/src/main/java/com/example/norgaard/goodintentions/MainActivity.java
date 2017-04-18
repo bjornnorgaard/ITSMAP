@@ -22,14 +22,14 @@ public class MainActivity extends AppCompatActivity {
         btnTakePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TakePicture();
+                takePicture();
             }
         });
     }
 
-    private void TakePicture() {
+    private void takePicture() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        
+
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(intent, REQUEST_CODE_TAKE_PICTURE);
         }
