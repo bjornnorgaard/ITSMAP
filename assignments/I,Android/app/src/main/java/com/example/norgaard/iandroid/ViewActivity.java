@@ -1,6 +1,8 @@
 package com.example.norgaard.iandroid;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.media.Image;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
@@ -17,6 +19,7 @@ public class ViewActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE_TAKE_PICTURE = 100;
     ImageView imageViewProfilePicture;
+    private Bitmap imageThumbnail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,21 @@ public class ViewActivity extends AppCompatActivity {
         }
         else {
             Toast.makeText(this, "Sorry no camera", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_CODE_TAKE_PICTURE) {
+            if (resultCode == RESULT_OK) {
+                if (data != null) {
+                    Bundle bundle = data.getExtras();
+                    imageThumbnail = (Bitmap) bundle.get("data");
+                    imageViewProfilePicture.setImageBitmap(imageThumbnail);
+                }
+            }
         }
     }
 
