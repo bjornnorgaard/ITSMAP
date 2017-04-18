@@ -6,10 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class ViewActivity extends AppCompatActivity {
 
     Context context = this;
+
+    public static final int REQUEST_CODE_ACTIVITY_EDIT = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +24,28 @@ public class ViewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, EditActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, REQUEST_CODE_ACTIVITY_EDIT);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_CODE_ACTIVITY_EDIT) {
+            if (resultCode == RESULT_OK) {
+                // Shit went good
+
+                String s = data.getStringExtra("user_input");
+
+                if (data != null) {
+                    Toast.makeText(this, "Ok!" + s, Toast.LENGTH_SHORT).show();
+                }
+            }
+            else {
+                // Shit went wrong
+            }
+        }
     }
 }

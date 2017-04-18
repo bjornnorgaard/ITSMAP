@@ -22,4 +22,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5"/>
 
+    <Button
+        android:id="@+id/btnDoneEditing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="16dp"
+        android:text="Button"
+        app:layout_constraintRight_toRightOf="@+id/edtInputField"
+        app:layout_constraintTop_toBottomOf="@+id/edtInputField"/>
+
 </android.support.constraint.ConstraintLayout>
