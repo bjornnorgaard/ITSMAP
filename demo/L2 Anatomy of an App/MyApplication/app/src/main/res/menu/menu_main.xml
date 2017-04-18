@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.leafcastle.android.clickcounter.MainActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never|ifRoom" />
+    <item
+        android:id="@+id/menuReset"
+        android:icon="@android:drawable/ic_menu_revert"
+        android:orderInCategory="101"
+        android:title="Reset"
+        app:showAsAction="ifRoom" />
+</menu>

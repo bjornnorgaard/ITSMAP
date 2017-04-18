@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Image Demo</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="btnSwapArnie">Swap Arnie!</string>
+
+    <string-array name="arnie_quotes">
+        <item>Put down the cookie!</item>
+        <item>Hasta la vista, baby!</item>
+        <item>I\'ll be back!</item>
+        <item>You\'re terminated!</item>
+    </string-array>
+</resources>

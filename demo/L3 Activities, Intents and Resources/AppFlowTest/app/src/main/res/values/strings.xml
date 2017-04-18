@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AppFlowTest</string>
+    <string name="text_activity2_title">Activity 2</string>
+    <string name="hello_message">Hi there!</string>
+</resources>
