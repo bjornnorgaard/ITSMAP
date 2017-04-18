@@ -1,5 +1,6 @@
 package com.example.norgaard.iandroid;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.Image;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 public class ViewActivity extends AppCompatActivity {
 
+    Context context = this;
     private static final int REQUEST_CODE_TAKE_PICTURE = 100;
     ImageView imageViewProfilePicture;
     private Bitmap imageThumbnail;
@@ -46,7 +48,8 @@ public class ViewActivity extends AppCompatActivity {
     }
 
     private void EditProfile() {
-        
+        Intent intent = new Intent(this, EditActivity.class);
+        startActivity(intent);
     }
 
     private void TakePicture() {
