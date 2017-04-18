@@ -9,7 +9,6 @@ import android.widget.EditText;
 
 public class Activity2 extends AppCompatActivity {
 
-
     Button btnCancel;
     Button btnOK;
     EditText edtUserinput;
@@ -22,9 +21,8 @@ public class Activity2 extends AppCompatActivity {
         Intent fromActivityOneOrWhoeverSummedMe = getIntent();
         String s = fromActivityOneOrWhoeverSummedMe.getStringExtra("user_input");
 
-
         edtUserinput = (EditText) findViewById(R.id.edtUserinput);
-        if(s!=null){
+        if (s != null) {
             edtUserinput.setText(s);
         }
         btnCancel = (Button) findViewById(R.id.btnCancel);
@@ -41,15 +39,14 @@ public class Activity2 extends AppCompatActivity {
                 ok();
             }
         });
-
     }
 
-    public void canceled(){
+    public void canceled() {
         setResult(RESULT_CANCELED);
         finish();
     }
 
-    public void ok(){
+    public void ok() {
 
         String s = edtUserinput.getText().toString();
         Intent data = new Intent();
@@ -57,5 +54,4 @@ public class Activity2 extends AppCompatActivity {
         setResult(RESULT_OK, data);
         finish();
     }
-
 }

@@ -61,12 +61,13 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (i.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(i, REQUEST_CODE_TAKE_PICTURE);
-        } else {
+        }
+        else {
             Toast.makeText(this, "no camera, sorry", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void startActivityTwo(){
+    public void startActivityTwo() {
         //explicit Intent to start the particular activity, pass some data as an Extra
         Intent intentStartActivity2 = new Intent(this, Activity2.class);
         intentStartActivity2.putExtra("user_input", edtUserinput.getText().toString());
@@ -75,9 +76,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        
 
-        if(photoThumbnail!=null) {
+        if (photoThumbnail != null) {
             outState.putParcelable(PHOTO_THUMBNAIL, photoThumbnail);
         }
         super.onSaveInstanceState(outState);
@@ -87,34 +87,33 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode==REQUEST_CODE_ACTIVITY_2){
-            if(resultCode==RESULT_OK){
+        if (requestCode == REQUEST_CODE_ACTIVITY_2) {
+            if (resultCode == RESULT_OK) {
 
-                if(data!=null){
+                if (data != null) {
                     String s = data.getStringExtra("user_input");
                     edtUserinput.setText(s);
                     Toast.makeText(this, "OK!" + s, Toast.LENGTH_SHORT).show();
-                } else {
+                }
+                else {
                     Toast.makeText(this, "OK!" + " but somehow got null data back", Toast.LENGTH_SHORT).show();
                 }
-
-            } else {
+            }
+            else {
                 Toast.makeText(this, "not OK", Toast.LENGTH_SHORT).show();
             }
-
-
-        } else if(requestCode==REQUEST_CODE_TAKE_PICTURE){
-            if(resultCode==RESULT_OK){
+        }
+        else if (requestCode == REQUEST_CODE_TAKE_PICTURE) {
+            if (resultCode == RESULT_OK) {
                 //yay, we got a picture taken
                 //check out: https://developer.android.com/training/camera/photobasics.html
-                if(data!=null){
+                if (data != null) {
                     //lets use the thumbnail of the picture in the app
                     Bundle extras = data.getExtras();
                     photoThumbnail = (Bitmap) extras.get("data");
                     imgPhoto.setImageBitmap(photoThumbnail);
                 }
             }
-
         }
     }
 }
