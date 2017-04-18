@@ -6,11 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ViewActivity extends AppCompatActivity {
 
     Context context = this;
+    TextView textView;
 
     public static final int REQUEST_CODE_ACTIVITY_EDIT = 100;
 
@@ -24,9 +26,12 @@ public class ViewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, EditActivity.class);
+                intent.putExtra("user_input", textView.getText().toString());
                 startActivityForResult(intent, REQUEST_CODE_ACTIVITY_EDIT);
             }
         });
+
+        textView = (TextView) findViewById(R.id.txwForString);
     }
 
     @Override
@@ -41,6 +46,7 @@ public class ViewActivity extends AppCompatActivity {
 
                 if (data != null) {
                     Toast.makeText(this, "Ok!" + s, Toast.LENGTH_SHORT).show();
+                    textView.setText(s);
                 }
             }
             else {

@@ -17,9 +17,13 @@ public class EditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
 
-        final Intent intent = getIntent();
-
         final EditText editText = (EditText) findViewById(R.id.edtInputField);
+
+        final Intent intent = getIntent();
+        String s = intent.getStringExtra("user_input");
+        if (s != null) {
+            editText.setText(s);
+        }
 
         Button button = (Button) findViewById(R.id.btnDoneEditing);
         button.setOnClickListener(new View.OnClickListener() {
