@@ -10,7 +10,7 @@
     tools:showIn="@layout/activity_view">
 
     <ImageView
-        android:id="@+id/imvProfile"
+        android:id="@+id/imageViewProfile"
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
