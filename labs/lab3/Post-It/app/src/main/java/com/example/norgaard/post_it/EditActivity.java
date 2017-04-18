@@ -25,8 +25,8 @@ public class EditActivity extends AppCompatActivity {
             editText.setText(s);
         }
 
-        Button button = (Button) findViewById(R.id.btnOk);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button btnOk = (Button) findViewById(R.id.btnOk);
+        btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Get string from EditText, somehow needs to be toString().
@@ -37,6 +37,14 @@ public class EditActivity extends AppCompatActivity {
                 // Set result to build-in: "RESULT_OK" and put intent with it.
                 setResult(RESULT_OK, intent);
                 // Finish.
+                finish();
+            }
+        });
+
+        Button btnCancel = (Button) findViewById(R.id.btnCancel);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 finish();
             }
         });
