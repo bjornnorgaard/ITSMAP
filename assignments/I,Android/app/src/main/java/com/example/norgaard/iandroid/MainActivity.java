@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         picture = (ImageView) findViewById(R.id.imageViewProfilePicture);
         android = (CheckBox) findViewById(R.id.checkBoxIdAndroid);
+
         name = (TextView) findViewById(R.id.valueName);
         id = (TextView) findViewById(R.id.valueId);
 
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         picture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TakePicture();
+                takePicture();
             }
         });
 
@@ -65,12 +66,12 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditProfile();
+                editProfile();
             }
         });
     }
 
-    private void TakePicture() {
+    private void takePicture() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
         if (intent.resolveActivity(getPackageManager()) != null) {
@@ -81,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void EditProfile() {
+    private void editProfile() {
         Intent intent = new Intent(context, EditActivity.class);
 
         intent.putExtra(getString(R.string.extra_put_name_key), name.getText().toString());
