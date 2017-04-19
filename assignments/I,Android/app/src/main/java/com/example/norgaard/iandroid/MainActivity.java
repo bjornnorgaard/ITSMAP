@@ -1,5 +1,6 @@
 package com.example.norgaard.iandroid;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -24,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
     public static final String SAVING_ID_KEY = "saving id key";
 
     public static final int REQUEST_CODE_TAKE_PICTURE = 100;
+    public static final int REQUEST_CODE_EDIT_PROFILE = 101;
+
+    Context context = this;
 
     ImageView picture;
     CheckBox android;
@@ -77,6 +81,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void EditProfile() {
+        Intent intent = new Intent(context, EditActivity.class);
+
+        intent.putExtra(getString(R.string.extra_put_name_key), name.getText().toString());
+        intent.putExtra(getString(R.string.extra_put_android_key), android.isChecked());
+        intent.putExtra(getString(R.string.extra_put_id_key), id.getText().toString());
+
+        startActivityForResult(intent, REQUEST_CODE_EDIT_PROFILE);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -88,6 +102,23 @@ public class MainActivity extends AppCompatActivity {
                     bitmap = (Bitmap) bundle.get("data");
                     picture.setImageBitmap(bitmap);
                 }
+            }
+            else {
+                Toast.makeText(this, R.string.camera_failed, Toast.LENGTH_SHORT).show();
+            }
+        }
+        else if (requestCode == REQUEST_CODE_EDIT_PROFILE) {
+            if (resultCode == RESULT_OK) {
+                Boolean a = data.getBooleanExtra(getString(R.string.extra_put_android_key), false);
+                String n = data.getStringExtra(getString(R.string.extra_put_name_key));
+                String i = data.getStringExtra(getString(R.string.extra_put_id_key));
+
+                android.setChecked(a);
+                name.setText(n);
+                id.setText(i);
+            }
+            else {
+                Toast.makeText(this, R.string.edit_failed, Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -101,10 +132,6 @@ public class MainActivity extends AppCompatActivity {
         outState.putParcelable(SAVING_BITMAP_KEY, bitmap);
 
         super.onSaveInstanceState(outState, outPersistentState);
-    }
-
-    private void EditProfile() {
-
     }
 
     @Override

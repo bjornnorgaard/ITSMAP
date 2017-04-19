@@ -11,4 +11,9 @@
     <string name="no">No</string>
     <string name="name_goes_here">Name goes here</string>
     <string name="input_id">Input id</string>
+    <string name="extra_put_name_key">extra name key</string>
+    <string name="extra_put_id_key">extra id key</string>
+    <string name="extra_put_android_key">extra android key</string>
+    <string name="edit_failed">Edit failed!</string>
+    <string name="camera_failed">Camera failed!</string>
 </resources>
