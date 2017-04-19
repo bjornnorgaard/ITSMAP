@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+
         outState.putString(SAVING_NAME_KEY, name.getText().toString());
         outState.putBoolean(SAVING_ANDROID_KEY, android.isChecked());
         outState.putString(SAVING_ID_KEY, id.getText().toString());
