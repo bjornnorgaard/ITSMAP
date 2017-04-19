@@ -67,7 +67,7 @@ public class EditActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                setResult(RESULT_OK, intent);
+                setResult(RESULT_CANCELED, intent);
                 finish();
             }
         });
