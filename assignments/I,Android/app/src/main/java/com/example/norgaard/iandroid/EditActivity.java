@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
@@ -20,6 +22,9 @@ public class EditActivity extends AppCompatActivity {
     EditText name;
     EditText id;
 
+    Button cancel;
+    Button ok;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +33,9 @@ public class EditActivity extends AppCompatActivity {
         androidGroup = (RadioGroup) findViewById(R.id.radioGroupAndroid);
         name = (EditText) findViewById(R.id.fieldName);
         id = (EditText) findViewById(R.id.fieldId);
+
+        cancel = (Button) findViewById(R.id.buttonCancel);
+        ok = (Button) findViewById(R.id.buttonOk);
 
         if (savedInstanceState != null) {
             String n = savedInstanceState.getString(SAVING_NAME_KEY);
@@ -54,6 +62,40 @@ public class EditActivity extends AppCompatActivity {
                 androidGroup.check(R.id.radioButtonNo);
             }
         }
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+        });
+
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String n = name.getText().toString();
+                String i = id.getText().toString();
+                Boolean android;
+
+                int a = androidGroup.getCheckedRadioButtonId();
+                if (a == R.id.radioButtonYes) {
+                    android = true;
+                }
+                else {
+                    android = false;
+                }
+
+                Intent intent = new Intent();
+                intent.putExtra(getString(R.string.extra_put_android_key), android);
+                intent.putExtra(getString(R.string.extra_put_name_key), n);
+                intent.putExtra(getString(R.string.extra_put_id_key), i);
+
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+        });
     }
 
     @Override

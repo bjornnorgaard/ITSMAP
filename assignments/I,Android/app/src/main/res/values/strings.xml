@@ -16,4 +16,6 @@
     <string name="extra_put_android_key">extra android key</string>
     <string name="edit_failed">Edit failed!</string>
     <string name="camera_failed">Camera failed!</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
 </resources>
