@@ -21,12 +21,12 @@
         app:srcCompat="@mipmap/ic_launcher"/>
 
     <TextView
-        android:id="@+id/textViewNameLabel"
+        android:id="@+id/textViewName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
+        android:text="@string/name_key"
         android:layout_marginTop="32dp"
-        android:text="Name:"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewProfile"/>
 
@@ -36,9 +36,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="8dp"
-        android:hint="Mr. Nobody"
+        android:hint=""
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNameLabel"/>
+        app:layout_constraintTop_toBottomOf="@+id/textViewName"/>
 
     <TextView
         android:id="@+id/textViewIdLabel"
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="32dp"
-        android:text="Id:"
+        android:text="@string/id_key"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewName"/>
 
@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="8dp"
-        android:hint="No id"
+        android:hint=""
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewIdLabel"/>
 
@@ -68,7 +68,7 @@
         android:layout_marginTop="16dp"
         android:checked="true"
         android:clickable="false"
-        android:text="Android"
+        android:text="@string/android_key"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewId"/>
 
