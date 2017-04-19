@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         picture = (ImageView) findViewById(R.id.imageViewProfilePicture);
         android = (CheckBox) findViewById(R.id.checkBoxIdAndroid);
-
+        android.setClickable(false);
         name = (TextView) findViewById(R.id.valueName);
         id = (TextView) findViewById(R.id.valueId);
 
