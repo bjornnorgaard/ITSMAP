@@ -7,4 +7,8 @@
     <string name="no_id">No id</string>
     <string name="is_android">Is Android?</string>
     <string name="sorry_no_camera_found">Sorry. No camera found.</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="name_goes_here">Name goes here</string>
+    <string name="input_id">Input id</string>
 </resources>
