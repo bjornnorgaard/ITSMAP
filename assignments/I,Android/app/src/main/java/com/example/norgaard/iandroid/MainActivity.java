@@ -18,12 +18,12 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String SAVING_ANDROID_KEY = "saving android key";
+    public static final String SAVING_BITMAP_KEY = "saving bitmap key";
     public static final String SAVING_NAME_KEY = "saving name key";
     public static final String SAVING_ID_KEY = "saving id key";
-    public static final String SAVING_ANDROID_KEY = "saving android key";
 
     public static final int REQUEST_CODE_TAKE_PICTURE = 100;
-    public static final String SAVING_BITMAP_KEY = "saving bitmap key";
 
     Bitmap imageThumbnail;
     ImageView picture;
@@ -94,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-
         outState.putString(SAVING_NAME_KEY, name.getText().toString());
         outState.putBoolean(SAVING_ANDROID_KEY, android.isChecked());
         outState.putString(SAVING_ID_KEY, id.getText().toString());
