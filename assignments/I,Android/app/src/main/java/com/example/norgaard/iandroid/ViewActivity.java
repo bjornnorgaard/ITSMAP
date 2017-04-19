@@ -19,10 +19,10 @@ import android.widget.Toast;
 
 public class ViewActivity extends AppCompatActivity {
 
-    Context context = this;
     private static final int REQUEST_CODE_TAKE_PICTURE = 100;
     ImageView imageViewProfilePicture;
     private Bitmap imageThumbnail;
+    Context context = this;
 
     TextView nameLabel;
     TextView nameField;
@@ -37,7 +37,7 @@ public class ViewActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        nameLabel = (TextView) findViewById(R.id.textViewNameLabel);
+        nameLabel = (TextView) findViewById(R.id.textViewName);
         nameField = (TextView) findViewById(R.id.textViewName);
         idLabel = (TextView) findViewById(R.id.textViewIdLabel);
         idField = (TextView) findViewById(R.id.textViewId);
@@ -114,6 +114,9 @@ public class ViewActivity extends AppCompatActivity {
 
     private void EditProfile() {
         Intent intent = new Intent(this, EditActivity.class);
+        intent.putExtra(getString(R.string.name_field_key), nameField.getText());
+        intent.putExtra(getString(R.string.id_value_key), idField.getText());
+        intent.putExtra(getString(R.string.is_android_key), isAndroid.isChecked());
         startActivity(intent);
     }
 
