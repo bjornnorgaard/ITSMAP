@@ -6,4 +6,9 @@
     <string name="id_label_key">sad8f9as0d9f8ysafuoidsj</string>
     <string name="id_value_key">sodijfæoasidjf0as98ujdfiom</string>
     <string name="is_android_key">asæodifj9s8yh9i4ejnguh</string>
+    <string name="name_key">Name</string>
+    <string name="id_key">Id</string>
+    <string name="android_key">Android</string>
+    <string name="name_placeholder_key">Type your name</string>
+    <string name="id_placeholder_key">Id goes here</string>
 </resources>
