@@ -25,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
     public static final int REQUEST_CODE_TAKE_PICTURE = 100;
 
-    Bitmap imageThumbnail;
     ImageView picture;
     CheckBox android;
+    Bitmap bitmap;
     TextView name;
     TextView id;
 
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(intent, REQUEST_CODE_TAKE_PICTURE);
         }
         else {
-            Toast.makeText(this, "Sorry no camera", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.sorry_no_camera_found, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -85,8 +85,8 @@ public class MainActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 if (data != null) {
                     Bundle bundle = data.getExtras();
-                    imageThumbnail = (Bitmap) bundle.get("data");
-                    picture.setImageBitmap(imageThumbnail);
+                    bitmap = (Bitmap) bundle.get("data");
+                    picture.setImageBitmap(bitmap);
                 }
             }
         }
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         outState.putString(SAVING_NAME_KEY, name.getText().toString());
         outState.putBoolean(SAVING_ANDROID_KEY, android.isChecked());
         outState.putString(SAVING_ID_KEY, id.getText().toString());
-        outState.putParcelable(SAVING_BITMAP_KEY, imageThumbnail);
+        outState.putParcelable(SAVING_BITMAP_KEY, bitmap);
 
         super.onSaveInstanceState(outState, outPersistentState);
     }

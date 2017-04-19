@@ -6,4 +6,5 @@
     <string name="id">Id</string>
     <string name="no_id">No id</string>
     <string name="is_android">Is Android?</string>
+    <string name="sorry_no_camera_found">Sorry. No camera found.</string>
 </resources>
