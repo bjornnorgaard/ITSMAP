@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">I, Android</string>
     <string name="action_settings">Settings</string>
+    <string name="name">Name</string>
+    <string name="no_name">No name</string>
+    <string name="id">Id</string>
+    <string name="no_id">No id</string>
+    <string name="is_android">Is Android?</string>
 </resources>
