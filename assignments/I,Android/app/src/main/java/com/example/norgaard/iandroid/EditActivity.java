@@ -4,13 +4,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.CheckBox;
-import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.RadioGroup;
 
 public class EditActivity extends AppCompatActivity {
 
-    TextView textViewName;
-    TextView textViewId;
-    CheckBox checkBoxAndroid;
+    EditText editTextName;
+    EditText editTextId;
+    RadioGroup radioGroupIsAndroid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +19,28 @@ public class EditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit);
 
         // FindById and stuff
+        editTextName = (EditText) findViewById(R.id.editTextName);
+        editTextId = (EditText) findViewById(R.id.editTextId);
+        radioGroupIsAndroid = (RadioGroup) findViewById(R.id.radioGroupIsAndroid);
 
         Intent intent = getIntent();
-        textViewName.setText(intent.getStringExtra(getString(R.string.name_field_key)));
-        textViewId.setText(intent.getStringExtra(getString(R.string.id_value_key)));
-        checkBoxAndroid.setChecked(intent.getBooleanExtra(getString(R.string.is_android_key), false));
+
+        String name = intent.getStringExtra(getString(R.string.name_field_key));
+        if (name != null) {
+            editTextName.setText(name);
+        }
+
+        String id = intent.getStringExtra(getString(R.string.id_value_key));
+        if (id != null) {
+            editTextId.setText(id);
+        }
+
+        boolean android = intent.getBooleanExtra(getString(R.string.is_android_key), false);
+        if (android) {
+            radioGroupIsAndroid.check(R.id.radioYes);
+        }
+        else {
+            radioGroupIsAndroid.check(R.id.radioNo);
+        }
     }
 }

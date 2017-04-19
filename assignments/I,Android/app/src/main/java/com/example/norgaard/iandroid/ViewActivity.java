@@ -20,6 +20,8 @@ import android.widget.Toast;
 public class ViewActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE_TAKE_PICTURE = 100;
+    private static final int REQUEST_CODE_EDIT_PROFILE_KEY = 101;
+
     ImageView imageViewProfilePicture;
     private Bitmap imageThumbnail;
     Context context = this;
@@ -113,11 +115,11 @@ public class ViewActivity extends AppCompatActivity {
     }
 
     private void EditProfile() {
-        Intent intent = new Intent(this, EditActivity.class);
+        Intent intent = new Intent(context, EditActivity.class);
         intent.putExtra(getString(R.string.name_field_key), nameField.getText());
         intent.putExtra(getString(R.string.id_value_key), idField.getText());
         intent.putExtra(getString(R.string.is_android_key), isAndroid.isChecked());
-        startActivity(intent);
+        startActivityForResult(intent, REQUEST_CODE_EDIT_PROFILE_KEY);
     }
 
     private void TakePicture() {
