@@ -3,17 +3,18 @@ package com.example.norgaard.iandroid;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.media.Image;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ViewActivity extends AppCompatActivity {
@@ -23,12 +24,30 @@ public class ViewActivity extends AppCompatActivity {
     ImageView imageViewProfilePicture;
     private Bitmap imageThumbnail;
 
+    TextView nameLabel;
+    TextView nameField;
+    TextView idLabel;
+    TextView idField;
+    CheckBox isAndroid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        nameLabel = (TextView) findViewById(R.id.textViewNameLabel);
+        nameField = (TextView) findViewById(R.id.textViewName);
+        idLabel = (TextView) findViewById(R.id.textViewIdLabel);
+        idField = (TextView) findViewById(R.id.textViewId);
+        isAndroid = (CheckBox) findViewById(R.id.checkBoxIsAndroid);
+
+        if (savedInstanceState != null) {
+            nameField.setText(savedInstanceState.getString(getString(R.string.name_field_key)));
+            idField.setText(savedInstanceState.getString(getString(R.string.name_field_key)));
+            isAndroid.setChecked(savedInstanceState.getBoolean(getString(R.string.is_android_key)));
+        }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -47,20 +66,12 @@ public class ViewActivity extends AppCompatActivity {
         });
     }
 
-    private void EditProfile() {
-        Intent intent = new Intent(this, EditActivity.class);
-        startActivity(intent);
-    }
-
-    private void TakePicture() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(intent, REQUEST_CODE_TAKE_PICTURE);
-        }
-        else {
-            Toast.makeText(this, "Sorry no camera", Toast.LENGTH_SHORT).show();
-        }
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        outState.putString(getString(R.string.name_field_key), nameField.getText().toString());
+        outState.putInt(getString(R.string.id_value_key), Integer.parseInt(idField.getText().toString()));
+        outState.putBoolean(getString(R.string.is_android_key), isAndroid.isChecked());
+        super.onSaveInstanceState(outState, outPersistentState);
     }
 
     @Override
@@ -87,6 +98,7 @@ public class ViewActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
@@ -99,4 +111,21 @@ public class ViewActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    private void EditProfile() {
+        Intent intent = new Intent(this, EditActivity.class);
+        startActivity(intent);
+    }
+
+    private void TakePicture() {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(intent, REQUEST_CODE_TAKE_PICTURE);
+        }
+        else {
+            Toast.makeText(this, "Sorry no camera", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
+
