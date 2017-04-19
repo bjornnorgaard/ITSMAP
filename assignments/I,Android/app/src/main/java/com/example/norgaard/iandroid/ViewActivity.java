@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,15 +23,17 @@ public class ViewActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_TAKE_PICTURE = 100;
     private static final int REQUEST_CODE_EDIT_PROFILE_KEY = 101;
 
+    public static final String SAVING_NAME_FIELD_KEY = "saving name field key";
+    public static final String SAVING_ID_FIELD_KEY = "saving id field key";
+    public static final String SAVING_IS_ANDROID_KEY = "saving is android key";
+
     ImageView imageViewProfilePicture;
     private Bitmap imageThumbnail;
     Context context = this;
 
-    TextView nameLabel;
-    TextView nameField;
-    TextView idLabel;
-    TextView idField;
     CheckBox isAndroid;
+    TextView nameField;
+    TextView idField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,16 +42,14 @@ public class ViewActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        nameLabel = (TextView) findViewById(R.id.textViewName);
-        nameField = (TextView) findViewById(R.id.textViewName);
-        idLabel = (TextView) findViewById(R.id.textViewIdLabel);
-        idField = (TextView) findViewById(R.id.textViewId);
+        nameField = (TextView) findViewById(R.id.textViewLabelName);
         isAndroid = (CheckBox) findViewById(R.id.checkBoxIsAndroid);
+        idField = (TextView) findViewById(R.id.textViewLabelId);
 
         if (savedInstanceState != null) {
-            nameField.setText(savedInstanceState.getString(getString(R.string.name_field_key)));
-            idField.setText(savedInstanceState.getString(getString(R.string.name_field_key)));
-            isAndroid.setChecked(savedInstanceState.getBoolean(getString(R.string.is_android_key)));
+            isAndroid.setChecked(savedInstanceState.getBoolean(SAVING_IS_ANDROID_KEY));
+            nameField.setText(savedInstanceState.getString(SAVING_NAME_FIELD_KEY));
+            idField.setText(savedInstanceState.getString(SAVING_ID_FIELD_KEY));
         }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -70,9 +71,9 @@ public class ViewActivity extends AppCompatActivity {
 
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-        outState.putString(getString(R.string.name_field_key), nameField.getText().toString());
-        outState.putInt(getString(R.string.id_value_key), Integer.parseInt(idField.getText().toString()));
-        outState.putBoolean(getString(R.string.is_android_key), isAndroid.isChecked());
+        outState.putInt(SAVING_ID_FIELD_KEY, Integer.parseInt(idField.getText().toString()));
+        outState.putString(SAVING_NAME_FIELD_KEY, nameField.getText().toString());
+        outState.putBoolean(SAVING_IS_ANDROID_KEY, isAndroid.isChecked());
         super.onSaveInstanceState(outState, outPersistentState);
     }
 
@@ -116,9 +117,17 @@ public class ViewActivity extends AppCompatActivity {
 
     private void EditProfile() {
         Intent intent = new Intent(context, EditActivity.class);
+
         intent.putExtra(getString(R.string.name_field_key), nameField.getText());
         intent.putExtra(getString(R.string.id_value_key), idField.getText());
-        intent.putExtra(getString(R.string.is_android_key), isAndroid.isChecked());
+
+        if (isAndroid.isChecked()) {
+            intent.putExtra(getString(R.string.is_android_key), R.id.radioButtonYes);
+        }
+        else {
+            intent.putExtra(getString(R.string.is_android_key), R.id.radioButtonNo);
+        }
+
         startActivityForResult(intent, REQUEST_CODE_EDIT_PROFILE_KEY);
     }
 

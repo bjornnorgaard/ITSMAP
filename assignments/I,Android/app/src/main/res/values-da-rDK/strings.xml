@@ -5,8 +5,8 @@
     <string name="android_key">Android</string>
     <string name="name_placeholder_key">Type your name</string>
     <string name="id_placeholder_key">Id goes here</string>
-    <string name="yes_key">Yes</string>
-    <string name="no_key">No</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
     <string name="no_name_key">No name</string>
     <string name="no_id_key">No id</string>
 </resources>

@@ -8,7 +8,7 @@
     tools:context="com.example.norgaard.iandroid.EditActivity">
 
     <TextView
-        android:id="@+id/textViewName"
+        android:id="@+id/textViewLabelName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -32,11 +32,11 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/name_placeholder_key"
-        app:layout_constraintLeft_toLeftOf="@+id/textViewName"
-        app:layout_constraintTop_toBottomOf="@+id/textViewName"/>
+        app:layout_constraintLeft_toLeftOf="@+id/textViewLabelName"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLabelName"/>
 
     <TextView
-        android:id="@+id/textViewId"
+        android:id="@+id/textViewLabelId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
@@ -52,13 +52,13 @@
         android:layout_marginLeft="0dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:text="@string/id_placeholder_key"
-        app:layout_constraintLeft_toLeftOf="@+id/textViewId"
-        app:layout_constraintTop_toBottomOf="@+id/textViewId"/>
+        app:layout_constraintLeft_toLeftOf="@+id/textViewLabelId"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLabelId"/>
 
     <TextView
-        android:id="@+id/textViewAndroid"
+        android:id="@+id/textViewIsAndroid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
@@ -73,22 +73,23 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintLeft_toLeftOf="@+id/textViewAndroid"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAndroid">
+        app:layout_constraintLeft_toLeftOf="@+id/textViewIsAndroid"
+        app:layout_constraintTop_toBottomOf="@+id/textViewIsAndroid">
 
         <RadioButton
-            android:id="@+id/radioYes"
+            android:id="@+id/radioButtonYes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/yes_key"/>
+            android:text="@string/yes"/>
 
         <RadioButton
-            android:id="@+id/radioNo"
+            android:id="@+id/radioButtonNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/no_key"/>
+            android:text="@string/no"/>
 
     </RadioGroup>
+
     >
 
 </android.support.constraint.ConstraintLayout>
