@@ -44,12 +44,15 @@ public class MainActivity extends AppCompatActivity {
 
         picture = (ImageView) findViewById(R.id.imageViewProfilePicture);
         android = (CheckBox) findViewById(R.id.checkBoxIdAndroid);
-        android.setClickable(false);
         name = (TextView) findViewById(R.id.valueName);
         id = (TextView) findViewById(R.id.valueId);
+        android.setClickable(false);
 
         if (savedInstanceState != null) {
-            picture.setImageBitmap((Bitmap) savedInstanceState.getParcelable(SAVING_BITMAP_KEY));
+            bitmap = (Bitmap) savedInstanceState.getParcelable(SAVING_BITMAP_KEY);
+            if (bitmap != null) {
+                picture.setImageBitmap(bitmap);
+            }
             android.setChecked(savedInstanceState.getBoolean(SAVING_ANDROID_KEY, false));
             name.setText(savedInstanceState.getString(SAVING_NAME_KEY));
             id.setText(savedInstanceState.getString(SAVING_ID_KEY));
@@ -125,14 +128,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+    public void onSaveInstanceState(Bundle outState) {
 
         outState.putString(SAVING_NAME_KEY, name.getText().toString());
         outState.putBoolean(SAVING_ANDROID_KEY, android.isChecked());
         outState.putString(SAVING_ID_KEY, id.getText().toString());
         outState.putParcelable(SAVING_BITMAP_KEY, bitmap);
 
-        super.onSaveInstanceState(outState, outPersistentState);
+        super.onSaveInstanceState(outState);
     }
 
     @Override
