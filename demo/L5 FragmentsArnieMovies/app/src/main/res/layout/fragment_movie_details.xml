@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.leafcastlelabs.fragmentsarniemovies.MovieDetailsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/txtMovieTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/txtMovieYear"
+        android:layout_below="@+id/txtMovieTitle"
+        android:layout_alignLeft="@+id/txtMovieTitle"
+        android:layout_alignStart="@+id/txtMovieTitle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:gravity="center_horizontal"
+        android:id="@+id/txtMovieDescription"
+        android:layout_marginTop="49dp"
+        android:layout_below="@+id/txtMovieYear"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/imageView3"
+        android:src="@mipmap/ic_arnie_flex"
+        android:layout_alignTop="@+id/txtMovieTitle"
+        android:layout_toRightOf="@+id/txtMovieTitle"
+        android:layout_toEndOf="@+id/txtMovieTitle" />
+
+</RelativeLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="200dp"
+        android:id="@+id/list_container"
+        android:background="@color/arnie_main_color_dark"
+        android:layout_height="fill_parent">
+        </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/details_container"
+        android:layout_width="match_parent"
+        android:background="@color/arnie_main_color_light"
+        android:layout_height="match_parent">
+
+    </LinearLayout>
+</LinearLayout>
