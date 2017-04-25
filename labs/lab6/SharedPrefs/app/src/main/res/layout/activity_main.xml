@@ -7,13 +7,54 @@
     android:layout_height="match_parent"
     tools:context="com.example.norgaard.sharedprefs.MainActivity">
 
-    <TextView
+    <EditText
+        android:id="@+id/firstnameEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.100000024"/>
 
+    <EditText
+        android:id="@+id/lastnameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintLeft_toLeftOf="@+id/firstnameEditText"
+        app:layout_constraintTop_toBottomOf="@+id/firstnameEditText"/>
+
+    <EditText
+        android:id="@+id/ageEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintLeft_toLeftOf="@+id/lastnameEditText"
+        app:layout_constraintTop_toBottomOf="@+id/lastnameEditText"/>
+
+    <EditText
+        android:id="@+id/phonenumberEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintLeft_toLeftOf="@+id/ageEditText"
+        app:layout_constraintTop_toBottomOf="@+id/ageEditText"/>
 </android.support.constraint.ConstraintLayout>
