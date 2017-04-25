@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SharedPrefs</string>
+    <string name="preferences_file_key">SHARED_PREFERENCES_FILE</string>
+    <string name="saved_phonenumber">saved phonenumber</string>
+    <string name="saved_firstname">saved firstname</string>
+    <string name="saved_lastname">saved lastname</string>
+    <string name="saved_age">saved age</string>
 </resources>
