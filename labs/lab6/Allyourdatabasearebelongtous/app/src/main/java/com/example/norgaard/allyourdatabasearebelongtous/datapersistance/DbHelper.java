@@ -7,8 +7,8 @@ import android.graphics.drawable.Drawable;
 
 public class DbHelper extends SQLiteOpenHelper {
 
-    static final int DATABASE_VERSION = 1;
-    static final String DATABASE_NAME = "task.db";
+    private static final int DATABASE_VERSION = 1;
+    private static final String DATABASE_NAME = "task.db";
 
     public DbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
