@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private Button stopButton;
 
     Context context = this;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, MyService.class);
+                intent = new Intent(context, MyService.class);
                 startService(intent);
             }
         });
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         stopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                stopService(intent);
             }
         });
     }
