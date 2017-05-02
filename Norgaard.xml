@@ -29,6 +29,11 @@
   <option name="RIGHT_MARGIN" value="100" />
   <AndroidXmlCodeStyleSettings>
     <option name="USE_CUSTOM_SETTINGS" value="true" />
+    <option name="OTHER_SETTINGS">
+      <value>
+        <option name="INSERT_LINE_BREAK_BEFORE_FIRST_ATTRIBUTE" value="false" />
+      </value>
+    </option>
   </AndroidXmlCodeStyleSettings>
   <JavaCodeStyleSettings>
     <option name="BLANK_LINES_AROUND_INITIALIZER" value="0" />
@@ -60,6 +65,7 @@
   </Objective-C-extensions>
   <XML>
     <option name="XML_ATTRIBUTE_WRAP" value="0" />
+    <option name="XML_KEEP_LINE_BREAKS_IN_TEXT" value="false" />
     <option name="XML_KEEP_BLANK_LINES" value="1" />
     <option name="XML_LEGACY_SETTINGS_IMPORTED" value="true" />
   </XML>
