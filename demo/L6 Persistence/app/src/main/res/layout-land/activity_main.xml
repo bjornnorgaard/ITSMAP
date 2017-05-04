@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.leafcastle.android.datastoragedemo.MainActivity">
+
+    TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/lblTaskName"
+        android:layout_toLeftOf="@+id/lblTaskName" />
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_new_task_name"
+        android:id="@+id/lblTaskName"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtTaskName"
+        android:layout_below="@+id/lblTaskName"
+        android:hint="@string/edt_task_name_hint"
+        android:layout_alignLeft="@+id/lblTaskName"
+        android:layout_alignStart="@+id/lblTaskName"
+        android:layout_alignRight="@+id/lblTaskName"
+        android:layout_alignEnd="@+id/lblTaskName" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_task_place"
+        android:id="@+id/lblPlace"
+        android:layout_below="@+id/edtTaskName"
+        android:layout_alignRight="@+id/edtTaskName"
+        android:layout_alignEnd="@+id/edtTaskName"
+        android:layout_alignLeft="@+id/edtTaskName"
+        android:layout_alignStart="@+id/edtTaskName" />
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtTaskPlace"
+        android:hint="@string/edt_task_place_hint"
+        android:layout_below="@+id/lblPlace"
+        android:layout_alignRight="@+id/edtTaskName"
+        android:layout_alignEnd="@+id/edtTaskName"
+        android:layout_toRightOf="@+id/listView"
+        android:layout_toEndOf="@+id/listView" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_add_task"
+        android:id="@+id/btnAddTask"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>

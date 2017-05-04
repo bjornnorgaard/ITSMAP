@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.leafcastle.android.servicesdemo.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_bg_service"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_start_bg_service"
+        android:id="@+id/btnStartBgService"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_bg_service_stop"
+        android:id="@+id/btnStopBgService"
+        android:layout_below="@+id/textView"
+        android:layout_toRightOf="@+id/btnStartBgService"
+        android:layout_toEndOf="@+id/btnStartBgService" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_bound_service"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/btnStartBgService"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_bind_counting_service"
+        android:id="@+id/btnBindCoutningService"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_unbind_counting_service"
+        android:id="@+id/btnUnbindCountingService"
+        android:layout_below="@+id/textView2"
+        android:layout_toRightOf="@+id/btnBindCoutningService"
+        android:layout_toEndOf="@+id/btnBindCoutningService" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_get_count"
+        android:id="@+id/btnGetCount"
+        android:layout_alignTop="@+id/btnUnbindCountingService"
+        android:layout_toRightOf="@+id/btnUnbindCountingService"
+        android:layout_toEndOf="@+id/btnUnbindCountingService" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_intent_service"
+        android:id="@+id/lblIntentService"
+        android:layout_below="@+id/btnBindCoutningService"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_foo"
+        android:id="@+id/btnFoo"
+        android:layout_below="@+id/lblIntentService"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_baz"
+        android:id="@+id/btnBaz"
+        android:layout_alignTop="@+id/btnFoo"
+        android:layout_toRightOf="@+id/btnFoo"
+        android:layout_toEndOf="@+id/btnFoo" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_exit"
+        android:id="@+id/btExit"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/txtToUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="will be updated from AsynchTask after 5 secs"
+        android:layout_above="@+id/btExit"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

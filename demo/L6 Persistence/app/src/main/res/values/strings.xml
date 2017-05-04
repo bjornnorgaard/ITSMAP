@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DataStorageDemo</string>
+    <string name="lbl_new_task_name">Task Name</string>
+    <string name="edt_task_place_hint">where to do the task</string>
+    <string name="edt_task_name_hint">what to do?</string>
+    <string name="btn_add_task">Add Task</string>
+    <string name="lbl_task_place">Task Place</string>
+</resources>

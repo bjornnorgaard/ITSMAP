@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">DemoUI</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_ok">OK</string>
+    <string name="title_activity_main">The UI Demo</string>
+    <string name="title_activity_edit_text">EditText Demo</string>
+    <string name="title_activity_sliders">Sliders Demo</string>
+    <string name="title_activity_web_view">WebView Demo</string>
+    <string name="action_core">Search</string>
+    <string name="action_cool_feature">Cool feature</string>
+    <string name="action_do_stuff">Do stuff</string>
+    <string name="action_extra_thing">Extra thing</string>
+    <string name="action_exit">Exit</string>
+    <string name="title_picker_demo">Picker Demo</string>
+    <string name="title_activity_image_view">ImageSwitcher Demo</string>
+    <string name="arnie_quote_1">Nnnnnaaaarrrrgh!</string>
+    <string name="arnie_quote_2">If it bleeds, we can kill it!</string>
+    <string name="arnie_quote_3">WTF! This is not Arndroid!</string>
+    <string name="dialog_message">Enter search terms to search the UI demos</string>
+    <string name="dialog_title">Search UI Demo</string>
+    <string name="title_recyclerview_demo">RecyclerView Demo</string>
+</resources>

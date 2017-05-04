@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.leafcastlelabs.demoui">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:icon="@mipmap/ic_launcher2"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".PickerActivity"
+            android:label="@string/title_picker_demo"
+            android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="com.leafcastlelabs.demoui.DEMO_PICKER" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EditTextActivity"
+            android:label="@string/title_activity_edit_text"
+            android:parentActivityName=".MainActivity"
+            >
+            <intent-filter>
+                <action android:name="com.leafcastlelabs.demoui.DEMO_EDIT_TEXT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SlidersActivity"
+            android:label="@string/title_activity_sliders"
+            android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="com.leafcastlelabs.demoui.DEMO_SLIDERS_COLOR" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".WebViewActivity"
+            android:label="@string/title_activity_web_view"
+            android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="com.leafcastlelabs.demoui.DEMO_WEB" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ImageViewActivity"
+            android:label="@string/title_activity_image_view"
+            android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="com.leafcastlelabs.demoui.DEMO_IMAGE_SWITCHER" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".RecyclerViewActivity"
+            android:label="@string/title_recyclerview_demo"
+            android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="com.leafcastlelabs.demoui.DEMO_RECYCLERVIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

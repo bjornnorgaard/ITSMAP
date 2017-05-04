@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DataStorageDemo</string>
+    <string name="btn_add_task">Tilføj opgave</string>
+    <string name="edt_task_name_hint">Hvad skal gøres?</string>
+    <string name="edt_task_place_hint">Hvor skal det gøres?</string>
+    <string name="lbl_new_task_name">Opgaven</string>
+    <string name="lbl_task_place">Sted</string>
+</resources>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ServicesDemo</string>
+    <string name="err_bg_service_result">ERROR: could not retrieve result</string>
+    <string name="lbl_bg_service">Background Service:</string>
+    <string name="btn_start_bg_service">Start</string>
+    <string name="btn_bg_service_stop">Stop</string>
+    <string name="lbl_bound_service">Bound Counting Service:</string>
+    <string name="btn_bind_counting_service">Bind</string>
+    <string name="btn_unbind_counting_service">Unbind</string>
+    <string name="btn_get_count">Get count</string>
+    <string name="lbl_intent_service">Intent Service</string>
+    <string name="btn_foo">FOO</string>
+    <string name="btn_baz">BAZ</string>
+    <string name="btn_exit">Exit</string>
+</resources>

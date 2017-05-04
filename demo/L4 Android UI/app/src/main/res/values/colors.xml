@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="demo_theme_color">#119911</color>
+    <color name="other_demo_theme_color">#cc1111</color>
+    <color name="colorPrimary">#e91e63</color>
+    <color name="colorPrimaryDark">#c62828</color>
+    <color name="colorAccent">#058949</color>
+</resources>

@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.leafcastlelabs.demoui.MainActivity">
+    <item android:id="@+id/action_main_thing" android:title="@string/action_core"
+        android:orderInCategory="100" android:showAsAction="always" android:icon="@android:drawable/ic_menu_search"/>
+    <item android:id="@+id/action_cool_feature" android:title="@string/action_cool_feature"
+        android:orderInCategory="100" android:showAsAction="ifRoom" />
+    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+        android:orderInCategory="100" android:showAsAction="never" />
+    <item android:id="@+id/action_do_stuff" android:title="@string/action_do_stuff"
+        android:orderInCategory="100" android:showAsAction="never" />
+    <item android:id="@+id/action_extra_thing" android:title="@string/action_extra_thing"
+    android:orderInCategory="100" android:showAsAction="never" />
+    <item android:id="@+id/action_exit" android:title="@string/action_exit"
+        android:orderInCategory="100" android:showAsAction="never" />
+</menu>
