@@ -69,7 +69,10 @@ public class MainActivity extends AppCompatActivity {
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                locationTextView.setText(location.toString());
+                String latitude = String.valueOf(location.getLatitude());
+                String longtitude = String.valueOf(location.getLatitude());
+
+                locationTextView.setText("(" + latitude + ", " + longtitude + ")");
             }
 
             @Override
@@ -100,6 +103,6 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.stopButton)
     public void OnStopClick() {
         Toast.makeText(this, "Stop button clicked!", Toast.LENGTH_SHORT).show();
-        locationManager.clearTestProviderLocation(locationManager.GPS_PROVIDER);
+        locationManager.removeUpdates(locationListener);
     }
 }
