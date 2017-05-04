@@ -19,7 +19,7 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final int MIN_TIME_BETWEEN_UPDATES_IN_MILISECONDS = 250;
+    public static final int MIN_TIME_BETWEEN_UPDATES_IN_MILLISECONDS = 250;
     public static final int MIN_DISTANCE_BETWEEN_UPDATES_IN_METERS = 0;
 
     @BindView(R.id.locationTextView)
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
-        locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER, MIN_TIME_BETWEEN_UPDATES_IN_MILISECONDS, MIN_DISTANCE_BETWEEN_UPDATES_IN_METERS, locationListener);
+        locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER, MIN_TIME_BETWEEN_UPDATES_IN_MILLISECONDS, MIN_DISTANCE_BETWEEN_UPDATES_IN_METERS, locationListener);
     }
 
     @OnClick(R.id.stopButton)
