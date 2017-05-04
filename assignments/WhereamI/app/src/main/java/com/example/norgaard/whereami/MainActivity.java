@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,18 +29,13 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-        startButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    @OnClick(R.id.startButton)
+    public void OnStartClick() {
+        Toast.makeText(this, "Start button clicked!", Toast.LENGTH_SHORT).show();
+    }
 
-            }
-        });
-
-        stopButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                
-            }
-        });
+    @OnClick(R.id.stopButton)
+    public void OnStopClick() {
+        Toast.makeText(this, "Stop button clicked!", Toast.LENGTH_SHORT).show();
     }
 }
