@@ -12,13 +12,13 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.locationTextView)
-    private TextView locationTextView;
+    TextView locationTextView;
 
     @BindView(R.id.startButton)
-    private Button startButton;
+    Button startButton;
 
     @BindView(R.id.stopButton)
-    private Button stopButton;
+    Button stopButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
