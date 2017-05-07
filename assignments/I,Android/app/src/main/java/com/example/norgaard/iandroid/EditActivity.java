@@ -16,8 +16,6 @@ public class EditActivity extends AppCompatActivity {
     public static final String SAVING_NAME_KEY = "saving nameTextView key";
     public static final String SAVING_ID_KEY = "saving idTextView key";
 
-    Context context = this;
-
     RadioGroup isAndroidCheckBoxRadioGroup;
     EditText nameEditText;
     EditText idEditText;
