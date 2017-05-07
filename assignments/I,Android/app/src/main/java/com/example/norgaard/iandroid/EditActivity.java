@@ -18,52 +18,51 @@ public class EditActivity extends AppCompatActivity {
 
     Context context = this;
 
-    RadioGroup androidGroup;
-    EditText name;
-    EditText id;
-
-    Button cancel;
-    Button ok;
+    RadioGroup isAndroidCheckBoxRadioGroup;
+    EditText nameEditText;
+    EditText idEditText;
+    Button cancelButton;
+    Button okButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
 
-        androidGroup = (RadioGroup) findViewById(R.id.radioGroupAndroid);
-        name = (EditText) findViewById(R.id.fieldName);
-        id = (EditText) findViewById(R.id.fieldId);
+        isAndroidCheckBoxRadioGroup = (RadioGroup) findViewById(R.id.radioGroupAndroid);
+        nameEditText = (EditText) findViewById(R.id.fieldName);
+        idEditText = (EditText) findViewById(R.id.fieldId);
 
-        cancel = (Button) findViewById(R.id.buttonCancel);
-        ok = (Button) findViewById(R.id.buttonOk);
+        cancelButton = (Button) findViewById(R.id.buttonCancel);
+        okButton = (Button) findViewById(R.id.buttonOk);
 
         if (savedInstanceState != null) {
-            String n = savedInstanceState.getString(SAVING_NAME_KEY);
-            String i = savedInstanceState.getString(SAVING_ID_KEY);
-            int a = savedInstanceState.getInt(SAVING_ANDROID_KEY);
+            int isAndroid = savedInstanceState.getInt(SAVING_ANDROID_KEY);
+            String name = savedInstanceState.getString(SAVING_NAME_KEY);
+            String id = savedInstanceState.getString(SAVING_ID_KEY);
 
-            androidGroup.check(a);
-            name.setText(n);
-            id.setText(i);
+            isAndroidCheckBoxRadioGroup.check(isAndroid);
+            nameEditText.setText(name);
+            idEditText.setText(id);
         }
         else {
             Intent intent = getIntent();
 
-            Boolean a = intent.getBooleanExtra(getString(R.string.extra_put_android_key), false);
-            String n = intent.getStringExtra(getString(R.string.extra_put_name_key));
-            String i = intent.getStringExtra(getString(R.string.extra_put_id_key));
+            Boolean isAndroid = intent.getBooleanExtra(getString(R.string.extra_put_android_key), false);
+            String name = intent.getStringExtra(getString(R.string.extra_put_name_key));
+            String id = intent.getStringExtra(getString(R.string.extra_put_id_key));
 
-            name.setText(n);
-            id.setText(i);
-            if (a) {
-                androidGroup.check(R.id.radioButtonYes);
+            nameEditText.setText(name);
+            idEditText.setText(id);
+            if (isAndroid) {
+                isAndroidCheckBoxRadioGroup.check(R.id.radioButtonYes);
             }
             else {
-                androidGroup.check(R.id.radioButtonNo);
+                isAndroidCheckBoxRadioGroup.check(R.id.radioButtonNo);
             }
         }
 
-        cancel.setOnClickListener(new View.OnClickListener() {
+        cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
@@ -72,25 +71,26 @@ public class EditActivity extends AppCompatActivity {
             }
         });
 
-        ok.setOnClickListener(new View.OnClickListener() {
+        okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String n = name.getText().toString();
-                String i = id.getText().toString();
-                Boolean android;
+                String name = nameEditText.getText().toString();
+                String id = idEditText.getText().toString();
+                Boolean isAndroid;
 
-                int a = androidGroup.getCheckedRadioButtonId();
-                if (a == R.id.radioButtonYes) {
-                    android = true;
+                int selctedIdAndroidCheckBoxId = isAndroidCheckBoxRadioGroup.getCheckedRadioButtonId();
+                if (selctedIdAndroidCheckBoxId == R.id.radioButtonYes) {
+                    isAndroid = true;
                 }
                 else {
-                    android = false;
+                    isAndroid = false;
                 }
 
                 Intent intent = new Intent();
-                intent.putExtra(getString(R.string.extra_put_android_key), android);
-                intent.putExtra(getString(R.string.extra_put_name_key), n);
-                intent.putExtra(getString(R.string.extra_put_id_key), i);
+
+                intent.putExtra(getString(R.string.extra_put_android_key), isAndroid);
+                intent.putExtra(getString(R.string.extra_put_name_key), name);
+                intent.putExtra(getString(R.string.extra_put_id_key), id);
 
                 setResult(RESULT_OK, intent);
                 finish();
@@ -101,9 +101,9 @@ public class EditActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
 
-        outState.putInt(SAVING_ANDROID_KEY, androidGroup.getCheckedRadioButtonId());
-        outState.putString(SAVING_NAME_KEY, name.getText().toString());
-        outState.putString(SAVING_ID_KEY, id.getText().toString());
+        outState.putInt(SAVING_ANDROID_KEY, isAndroidCheckBoxRadioGroup.getCheckedRadioButtonId());
+        outState.putString(SAVING_NAME_KEY, nameEditText.getText().toString());
+        outState.putString(SAVING_ID_KEY, idEditText.getText().toString());
 
         super.onSaveInstanceState(outState, outPersistentState);
     }
