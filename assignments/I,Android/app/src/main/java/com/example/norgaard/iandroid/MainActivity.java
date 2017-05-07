@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -19,21 +18,21 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String SAVING_ANDROID_KEY = "saving android key";
+    public static final String SAVING_ANDROID_KEY = "saving androidCheckBox key";
     public static final String SAVING_BITMAP_KEY = "saving bitmap key";
-    public static final String SAVING_NAME_KEY = "saving name key";
-    public static final String SAVING_ID_KEY = "saving id key";
+    public static final String SAVING_NAME_KEY = "saving nameTextView key";
+    public static final String SAVING_ID_KEY = "saving idTextView key";
 
     public static final int REQUEST_CODE_TAKE_PICTURE = 100;
     public static final int REQUEST_CODE_EDIT_PROFILE = 101;
 
     Context context = this;
 
-    ImageView picture;
-    CheckBox android;
+    ImageView pictureImageView;
+    CheckBox androidCheckBox;
+    TextView nameTextView;
+    TextView idTextView;
     Bitmap bitmap;
-    TextView name;
-    TextView id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,23 +41,23 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        picture = (ImageView) findViewById(R.id.imageViewProfilePicture);
-        android = (CheckBox) findViewById(R.id.checkBoxIdAndroid);
-        name = (TextView) findViewById(R.id.valueName);
-        id = (TextView) findViewById(R.id.valueId);
-        android.setClickable(false);
+        pictureImageView = (ImageView) findViewById(R.id.imageViewProfilePicture);
+        androidCheckBox = (CheckBox) findViewById(R.id.checkBoxIdAndroid);
+        nameTextView = (TextView) findViewById(R.id.valueName);
+        idTextView = (TextView) findViewById(R.id.valueId);
+        androidCheckBox.setClickable(false);
 
         if (savedInstanceState != null) {
             bitmap = (Bitmap) savedInstanceState.getParcelable(SAVING_BITMAP_KEY);
             if (bitmap != null) {
-                picture.setImageBitmap(bitmap);
+                pictureImageView.setImageBitmap(bitmap);
             }
-            android.setChecked(savedInstanceState.getBoolean(SAVING_ANDROID_KEY, false));
-            name.setText(savedInstanceState.getString(SAVING_NAME_KEY));
-            id.setText(savedInstanceState.getString(SAVING_ID_KEY));
+            androidCheckBox.setChecked(savedInstanceState.getBoolean(SAVING_ANDROID_KEY, false));
+            nameTextView.setText(savedInstanceState.getString(SAVING_NAME_KEY));
+            idTextView.setText(savedInstanceState.getString(SAVING_ID_KEY));
         }
 
-        picture.setOnClickListener(new View.OnClickListener() {
+        pictureImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 takePicture();
@@ -88,9 +87,9 @@ public class MainActivity extends AppCompatActivity {
     private void editProfile() {
         Intent intent = new Intent(context, EditActivity.class);
 
-        intent.putExtra(getString(R.string.extra_put_name_key), name.getText().toString());
-        intent.putExtra(getString(R.string.extra_put_android_key), android.isChecked());
-        intent.putExtra(getString(R.string.extra_put_id_key), id.getText().toString());
+        intent.putExtra(getString(R.string.extra_put_id_key), idTextView.getText().toString());
+        intent.putExtra(getString(R.string.extra_put_name_key), nameTextView.getText().toString());
+        intent.putExtra(getString(R.string.extra_put_android_key), androidCheckBox.isChecked());
 
         startActivityForResult(intent, REQUEST_CODE_EDIT_PROFILE);
     }
@@ -104,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 if (data != null) {
                     Bundle bundle = data.getExtras();
                     bitmap = (Bitmap) bundle.get("data");
-                    picture.setImageBitmap(bitmap);
+                    pictureImageView.setImageBitmap(bitmap);
                 }
             }
             else {
@@ -113,13 +112,13 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (requestCode == REQUEST_CODE_EDIT_PROFILE) {
             if (resultCode == RESULT_OK) {
-                Boolean a = data.getBooleanExtra(getString(R.string.extra_put_android_key), false);
-                String n = data.getStringExtra(getString(R.string.extra_put_name_key));
-                String i = data.getStringExtra(getString(R.string.extra_put_id_key));
+                String id = data.getStringExtra(getString(R.string.extra_put_id_key));
+                Boolean idAndroid = data.getBooleanExtra(getString(R.string.extra_put_android_key), false);
+                String name = data.getStringExtra(getString(R.string.extra_put_name_key));
 
-                android.setChecked(a);
-                name.setText(n);
-                id.setText(i);
+                androidCheckBox.setChecked(idAndroid);
+                nameTextView.setText(name);
+                idTextView.setText(id);
             }
             else {
                 Toast.makeText(this, R.string.edit_failed, Toast.LENGTH_SHORT).show();
@@ -130,9 +129,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle outState) {
 
-        outState.putString(SAVING_NAME_KEY, name.getText().toString());
-        outState.putBoolean(SAVING_ANDROID_KEY, android.isChecked());
-        outState.putString(SAVING_ID_KEY, id.getText().toString());
+        outState.putString(SAVING_NAME_KEY, nameTextView.getText().toString());
+        outState.putBoolean(SAVING_ANDROID_KEY, androidCheckBox.isChecked());
+        outState.putString(SAVING_ID_KEY, idTextView.getText().toString());
         outState.putParcelable(SAVING_BITMAP_KEY, bitmap);
 
         super.onSaveInstanceState(outState);

@@ -12,9 +12,9 @@ import android.widget.RadioGroup;
 
 public class EditActivity extends AppCompatActivity {
 
-    public static final String SAVING_ANDROID_KEY = "saving android key";
-    public static final String SAVING_NAME_KEY = "saving name key";
-    public static final String SAVING_ID_KEY = "saving id key";
+    public static final String SAVING_ANDROID_KEY = "saving androidCheckBox key";
+    public static final String SAVING_NAME_KEY = "saving nameTextView key";
+    public static final String SAVING_ID_KEY = "saving idTextView key";
 
     Context context = this;
 
