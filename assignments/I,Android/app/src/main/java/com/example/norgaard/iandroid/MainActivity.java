@@ -22,21 +22,22 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String SAVING_ANDROID_KEY = "saving androidCheckBox key";
-    public static final String SAVING_BITMAP_KEY = "saving bitmap key";
-    public static final String SAVING_NAME_KEY = "saving nameTextView key";
-    public static final String SAVING_ID_KEY = "saving idTextView key";
+    private static final String SAVING_ANDROID_KEY = "saving androidCheckBox key";
+    private static final String SAVING_BITMAP_KEY = "saving bitmap key";
+    private static final String SAVING_NAME_KEY = "saving nameTextView key";
+    private static final String SAVING_ID_KEY = "saving idTextView key";
 
-    public static final int REQUEST_CODE_TAKE_PICTURE = 100;
-    public static final int REQUEST_CODE_EDIT_PROFILE = 101;
+    private static final int PERMISSION_REQUEST_CAMERA = 102;
+    private static final int REQUEST_CODE_TAKE_PICTURE = 100;
+    private static final int REQUEST_CODE_EDIT_PROFILE = 101;
 
-    Context context = this;
+    private ImageView pictureImageView;
+    private CheckBox androidCheckBox;
+    private TextView nameTextView;
+    private TextView idTextView;
+    private Bitmap bitmap;
 
-    ImageView pictureImageView;
-    CheckBox androidCheckBox;
-    TextView nameTextView;
-    TextView idTextView;
-    Bitmap bitmap;
+    private Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
