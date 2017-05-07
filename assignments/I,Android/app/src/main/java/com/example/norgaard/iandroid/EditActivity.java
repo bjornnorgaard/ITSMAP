@@ -78,8 +78,8 @@ public class EditActivity extends AppCompatActivity {
                 String id = idEditText.getText().toString();
                 Boolean isAndroid;
 
-                int selctedIdAndroidCheckBoxId = isAndroidCheckBoxRadioGroup.getCheckedRadioButtonId();
-                if (selctedIdAndroidCheckBoxId == R.id.radioButtonYes) {
+                int selectedIdAndroidCheckBoxId = isAndroidCheckBoxRadioGroup.getCheckedRadioButtonId();
+                if (selectedIdAndroidCheckBoxId == R.id.radioButtonYes) {
                     isAndroid = true;
                 }
                 else {
