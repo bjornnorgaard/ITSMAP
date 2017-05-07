@@ -1,11 +1,15 @@
 package com.example.norgaard.iandroid;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -74,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void takePicture() {
+        if (getCameraPermission() == false) {
+            return;
+        }
+
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
         if (intent.resolveActivity(getPackageManager()) != null) {
@@ -82,6 +90,20 @@ public class MainActivity extends AppCompatActivity {
         else {
             Toast.makeText(this, R.string.sorry_no_camera_found, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    // The following method is taken from:
+    // https://developer.android.com/training/permissions/requesting.html
+    // used with a few changes.
+    private boolean getCameraPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, PERMISSION_REQUEST_CAMERA);
+        }
+        else {
+            return true;
+        }
+
+        return ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED;
     }
 
     private void editProfile() {
